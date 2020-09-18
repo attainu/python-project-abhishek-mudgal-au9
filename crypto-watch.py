@@ -26,7 +26,7 @@ class Crypto:
 ## get price fetches the price and returns a float value
 ##otherwise catches error and displays it to the user
 
-    def get_price():
+    def get_price(self):
         json_url = api['CRYPTO'].format(keys['CRYPTO'], sys.argv[1], sys.argv[2])
         try:
             response = requests.get(json_url)
@@ -39,7 +39,7 @@ class Crypto:
 ##notify function uses IFTTT platform to send
 ##notifications, post_data contains data to be posted on IFTTT Message
 
-    def notify(channel, price):
+    def notify(self, channel, price):
 
         post_data = {
             'value1': sys.argv[1], 
@@ -55,21 +55,21 @@ class Crypto:
 ##Main Function checks the price, and calls
 ## notification function.
 
-def main():
-    while 1 > 0:
-        price = Crypto.get_price()
-        print(price)
-        if price > int(sys.argv[5]):
-            Crypto.notify(sys.argv[4], price)
-        time.sleep(int(sys.argv[3]))
+    def main(self):
+        while True:
+            price = Crypto.get_price(self)
+            print(price)
+            if price > int(sys.argv[5]):
+                Crypto.notify(self, sys.argv[4], price)
+            time.sleep(int(sys.argv[3]))
 
 
 if __name__ == "__main__":
     try:
-        main()
+        o = Crypto()
+        o.main()
     except IndexError:
-        raise SystemExit("""Usage: crypty-watch.py <CRYPTO> <CURRENCY> <PRICE INTERVAL> <CHANNEL> <TRIGGER>
-
+        raise SystemExit("""Usage: crypto-watch.py <CRYPTO> <CURRENCY> <PRICE INTERVAL> <CHANNEL> <TRIGGER>
 
 
         <CRYPTO> :              BTC, XMR, XRP, etc
