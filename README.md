@@ -47,6 +47,9 @@ Program requires an threshold value to compare price. If the fetch priced has go
 
     ./crypto-watch.py BTC USD 60 telegram 10000
 
+![Syntax](https://i.ibb.co/hdRNbXS/Screenshot-from-2020-09-18-15-37-29.png)
+![Result](https://i.ibb.co/pX2Zwwg/Screenshot-from-2020-09-18-15-38-53.png)
+
 ## License
 
 [GPLv3](https://github.com/attainu/python-project-abhishek-mudgal-au9/blob/dev/LICENSE)
