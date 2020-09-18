@@ -2,8 +2,8 @@
 
 ## About
 
-Crypto Watch (`crypto-watch`) is a simple python script which notifies user if their desired crypto currency has crossed a certain threshold using IFTTT Notification API
-Market Date from https://api.nomics.com
+Crypto Watch (`crypto-watch`) is a simple python program which notifies user if their desired crypto currency has crossed a certain threshold using IFTTT Notification API.
+Market Data from https://api.nomics.com
 Notification Service https://ifttt.com
 Libraries used: `tqdm`, `json`, `requests`, `time`
 
@@ -11,6 +11,7 @@ Libraries used: `tqdm`, `json`, `requests`, `time`
 ## Installation
 Installation is fairly simple and straight forward
 
+    pip3 install requests tqdm
     git clone https://github.com/attainu/python-project-abhishek-mudgal-au9 -b dev ~/crypto-watch
      
    ##  Running the Script
@@ -45,4 +46,8 @@ Program requires an threshold value to compare price. If the fetch priced has go
 ## Example
 
     ./crypto-watch.py BTC USD 60 telegram 10000
+
+## License
+
+[GPLv3](https://github.com/attainu/python-project-abhishek-mudgal-au9/blob/dev/LICENSE)
 
