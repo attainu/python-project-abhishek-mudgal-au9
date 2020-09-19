@@ -28,7 +28,7 @@ class Crypto:
 
     def get_price(self):
         json_url = api['CRYPTO'].format(keys['CRYPTO'],
-            sys.argv[1], sys.argv[2])
+                                        sys.argv[1], sys.argv[2])
         try:
             response = requests.get(json_url)
             return(float(response.json()[0]['price']))
@@ -48,11 +48,9 @@ class Crypto:
         }
 
         for i in tqdm(
-            range(1),
-            desc="Sending notification to {}".format(channel)
-            ):
-            trigger = api['IFTTT'].format(channel, keys['IFTTT']
-            )
+                range(1),
+                desc="Sending notification to {}".format(channel)):
+            trigger = api['IFTTT'].format(channel, keys['IFTTT'])
             requests.post(trigger, json=post_data)
             pass
 
@@ -73,13 +71,10 @@ if __name__ == "__main__":
         o = Crypto()
         o.main()
     except IndexError:
-        raise SystemExit("""Usage: crypto-watch.py <CRYPTO> <CURRENCY> <PRICE INTERVAL> <CHANNEL> <TRIGGER>
-
-
-        <CRYPTO> :              BTC, XMR, XRP, etc
-        <CURRENCY>:             INR, USD, CAD, etc
-        <PRICE INTERVAL>:       How and when price should be updated eg, 60 for 60 seconds.
-        <CHANNEL>:              EG. telegram, twitter or any other applet which you have created.
-        <TRIGGER>:              Trigger value, eg. 10000
-
-        Use Ctrl+C to exit the program""")
+        raise SystemExit("""Usage: ./crypto-watch.py <CRYPTO> <CURRENCY> <PRICE INTERVAL> <CHANNEL> <TRIGGER> \n\n'
+                        <CRYPTO> :              BTC, XMR, XRP, etc
+                        <CURRENCY>:             INR, USD, CAD, etc
+                        <PRICE INTERVAL>:       How and when price should be updated eg, 60 for 60 seconds.
+                        <CHANNEL>:              EG. telegram, twitter or any other applet which you have created.
+                        <TRIGGER>:              Trigger value, eg. 10000\n\n
+                        Use Ctrl+C to exit the program""")
