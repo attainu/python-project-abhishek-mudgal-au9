@@ -35,7 +35,8 @@ class Crypto:
         except requests.exceptions.RequestException:
             raise SystemExit("Please check your internet connection!")
         except json.decoder.JSONDecodeError:
-            raise SystemExit("Market key invalid, please check or grab a new key!")
+            raise SystemExit(
+                "Market key invalid, please check or grab a new key!")
 
     # notify function uses IFTTT platform to send
     # notifications, post_data contains data to be posted on IFTTT Message
